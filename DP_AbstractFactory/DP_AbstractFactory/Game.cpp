@@ -14,7 +14,6 @@ using std::cin;
 template<typename T>
 void destroyVectorElements(vector<T> &vec);
 
-
 Game::Game(GameFactory *gFact) {
 
 	obstacles = gFact->makeObstacles();
@@ -23,13 +22,14 @@ Game::Game(GameFactory *gFact) {
 	title = gFact->setGameTitle();	
 }
 
+// Call delete function and delete player-pointer
 Game::~Game() {
   destroyVectorElements(obstacles);
   destroyVectorElements(actions);
-  delete player;
+  delete player;						
 }
 
-
+// Function that plays the game.
 void Game::play( ) {
 
   cout << "*** Welcome to " << title << " ***" << endl;
@@ -68,9 +68,13 @@ void Game::play( ) {
   cin.ignore(cin.rdbuf()->in_avail());
 }
 
-
+// Deleting vector-objects created with new.
 template<typename T>
 void destroyVectorElements(vector<T> &vec) {
-  // TODO
+  
+	for (int i = 0; i < vec.size(); ++i) {
+		delete vec[i];
+	}
+	vec.clear();
 }
 

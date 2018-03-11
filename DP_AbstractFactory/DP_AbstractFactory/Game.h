@@ -4,7 +4,6 @@
    Last change: feb 2014 / Orjan Sterner
 */
 
-
 #ifndef GameH
 #define GameH
 

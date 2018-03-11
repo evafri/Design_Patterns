@@ -1,6 +1,6 @@
 /*
 File: GameFactory.cpp
-Purpose: Implementation of concrete GameFactory classes
+Purpose: Implementation of the two concrete GameFactory classes
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-11
 Version: 1.1
@@ -10,6 +10,7 @@ Version: 1.1
 #include "Obstacle.h"
 #include "Action.h"
 
+// Function that fills vector with obstacle-objects.
 vector<Obstacle*> NiceGameFactory::makeObstacles()
 {
 	vector<Obstacle*> obstacles;
@@ -21,6 +22,7 @@ vector<Obstacle*> NiceGameFactory::makeObstacles()
 	return obstacles;
 }
 
+// Function that fills vector with action-objects.
 vector<Action*> NiceGameFactory::makeActions()
 {
 	vector<Action*> actions;
@@ -35,17 +37,20 @@ vector<Action*> NiceGameFactory::makeActions()
 	return actions;
 }
 
+// Function that creates a player-object.
 Player* NiceGameFactory::makePlayer()
 {
 	Player *player = new OrdinaryPlayer();
 	return player;
 }
 
+// Function that sets a title for the nice game.
 string NiceGameFactory::setGameTitle()
 {
 	return "Aprilias Nice Game";
 }
 
+// Function that fills vector with obstacle-objects.
 vector<Obstacle*> NastyGameFactory::makeObstacles()
 {
 	vector<Obstacle*> obstacles;
@@ -58,6 +63,7 @@ vector<Obstacle*> NastyGameFactory::makeObstacles()
 	return obstacles;
 }
 
+// Function that fills vector with action-objects.
 vector<Action*> NastyGameFactory::makeActions()
 {
 	vector<Action*> actions;
@@ -74,12 +80,14 @@ vector<Action*> NastyGameFactory::makeActions()
 	return actions;
 }
 
+// Function that creates a player-object.
 Player* NastyGameFactory::makePlayer()
 {
 	Player *player = new HeroPlayer();
 	return player;
 }
 
+// Function that sets a title for the nasty game.
 string NastyGameFactory::setGameTitle()
 {
 	return "Aprilias Nasty Game";

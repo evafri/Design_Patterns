@@ -1,6 +1,6 @@
 /*
 File: GameFactory.h
-Purpose: Definition of GameFactory
+Purpose: Definition of abstract GameFactory and its concrete subclasses.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-11
 Version: 1.1
@@ -20,9 +20,7 @@ class Obstacle;
 class Action;
 
 
-// GameFactory är en abstrakt klass som definierar ett interface för
-// deriverade konkreta klasser
-
+// Abstract GameFactory class
 class GameFactory {
 protected:
   GameFactory() { }
@@ -36,6 +34,7 @@ public:
 	virtual string setGameTitle() = 0;
 };
 
+// Concrete NiceGameFactory class
 class NiceGameFactory : public GameFactory {
 
 public:
@@ -48,6 +47,7 @@ public:
 	string setGameTitle();
 };
 
+// Concrete NastyGameFactory class
 class NastyGameFactory : public GameFactory {
 
 public:

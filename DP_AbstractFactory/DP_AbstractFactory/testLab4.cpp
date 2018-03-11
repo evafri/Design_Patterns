@@ -1,6 +1,6 @@
 /*
 File: testLab4.cpp
-Purpose: Implementation of class testLab4
+Purpose: Implementation of testLab4. Here, the user can choose if he or she wants to play a nasty or a nice game.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-11
 Version: 1.1
@@ -32,8 +32,8 @@ int main() {
         }
 		
         switch(choice) {
-          case 1:  gf = new NiceGameFactory(); break;
-          case 2:  gf = new NastyGameFactory(); break;
+          case 1:  gf = new NiceGameFactory(); break; // create a new NiceGameFactory object
+          case 2:  gf = new NastyGameFactory(); break; // create a new NastyGameFactory object
           case 3: keepOn=false;
         }
 		
