@@ -31,7 +31,7 @@ public:
 	virtual ~GameFactory() = default;
    // Lämpliga operationer: se klassen Game.
 
-	virtual void makeObstacles() = 0;
+	virtual vector<Obstacle*> makeObstacles() = 0;
 	virtual void makeActions() = 0;
 	virtual string setGameTitle() = 0;
 };
@@ -42,7 +42,7 @@ public:
 	NiceGameFactory() : GameFactory() {}
 	virtual ~NiceGameFactory() {}
 
-	void makeObstacles();
+	vector<Obstacle*> makeObstacles();
 	void makeActions();
 	string setGameTitle();
 
@@ -69,7 +69,7 @@ public:
 	NastyGameFactory() : GameFactory() {}
 	virtual ~NastyGameFactory() {}
 
-	void makeObstacles();
+	vector<Obstacle*> makeObstacles();
 	void makeActions();
 	string setGameTitle();
 

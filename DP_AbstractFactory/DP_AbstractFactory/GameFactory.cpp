@@ -12,8 +12,15 @@ Version: 1.1
 
 /* Implementationer av konkreta factoryklasser */
 
-void NiceGameFactory::makeObstacles()
+vector<Obstacle*> NiceGameFactory::makeObstacles()
 {
+	vector<Obstacle*> obstacles;
+	obstacles.emplace_back(new Wall());
+	obstacles.emplace_back(new Wizard());
+	obstacles.emplace_back(new Elephant());
+	obstacles.emplace_back(new DPexam());
+
+	return obstacles;
 }
 
 void NiceGameFactory::makeActions()
@@ -25,8 +32,16 @@ string NiceGameFactory::setGameTitle()
 	return "Aprilias Nice GameFactory";
 }
 
-void NastyGameFactory::makeObstacles()
+vector<Obstacle*> NastyGameFactory::makeObstacles()
 {
+	vector<Obstacle*> obstacles;
+	obstacles.emplace_back(new Dragon());
+	obstacles.emplace_back(new Bomb());
+	obstacles.emplace_back(new Samuray());
+	obstacles.emplace_back(new SumoWrestler());
+	obstacles.emplace_back(new Gangster());
+
+	return obstacles;
 }
 
 void NastyGameFactory::makeActions()

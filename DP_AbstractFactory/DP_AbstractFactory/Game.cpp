@@ -28,6 +28,8 @@ Game::Game(GameFactory *gFact) {
   setGameTitle:
   - ge title ett passande värde
  */
+	obstacles = gFact->makeObstacles();
+
 	title = gFact->setGameTitle();
 	
 }
