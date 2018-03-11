@@ -29,10 +29,10 @@ protected:
 
 public:
 	virtual ~GameFactory() = default;
-   // Lämpliga operationer: se klassen Game.
 
 	virtual vector<Obstacle*> makeObstacles() = 0;
 	virtual vector<Action*> makeActions() = 0;
+	virtual Player *makePlayer() = 0;
 	virtual string setGameTitle() = 0;
 };
 
@@ -44,16 +44,9 @@ public:
 
 	vector<Obstacle*> makeObstacles();
 	vector<Action*> makeActions();
+	Player *makePlayer();
 	string setGameTitle();
-
 };
-/* NiceGameFactory:
-
-
-
-    Player:
-    OrdinaryPlayer
-*/
 
 class NastyGameFactory : public GameFactory {
 
@@ -63,17 +56,8 @@ public:
 
 	vector<Obstacle*> makeObstacles();
 	vector<Action*> makeActions();
+	Player *makePlayer();
 	string setGameTitle();
-
 };
-
-/* NastyGameFactory:
-
-
-
-    Player:
-    HeroPlayer
-*/
-
 
 #endif

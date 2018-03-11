@@ -1,6 +1,6 @@
 /*
 File: GameFactory.cpp
-Purpose: Implementation of class GameFactory
+Purpose: Implementation of concrete GameFactory classes
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-11
 Version: 1.1
@@ -9,8 +9,6 @@ Version: 1.1
 #include "GameFactory.h"
 #include "Obstacle.h"
 #include "Action.h"
-
-/* Implementationer av konkreta factoryklasser */
 
 vector<Obstacle*> NiceGameFactory::makeObstacles()
 {
@@ -37,9 +35,15 @@ vector<Action*> NiceGameFactory::makeActions()
 	return actions;
 }
 
+Player* NiceGameFactory::makePlayer()
+{
+	Player *player = new OrdinaryPlayer();
+	return player;
+}
+
 string NiceGameFactory::setGameTitle()
 {
-	return "Aprilias Nice GameFactory";
+	return "Aprilias Nice Game";
 }
 
 vector<Obstacle*> NastyGameFactory::makeObstacles()
@@ -70,7 +74,13 @@ vector<Action*> NastyGameFactory::makeActions()
 	return actions;
 }
 
+Player* NastyGameFactory::makePlayer()
+{
+	Player *player = new HeroPlayer();
+	return player;
+}
+
 string NastyGameFactory::setGameTitle()
 {
-	return "Aprilias Nasty GameFactory";
+	return "Aprilias Nasty Game";
 }

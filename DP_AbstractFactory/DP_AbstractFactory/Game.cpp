@@ -17,17 +17,10 @@ void destroyVectorElements(vector<T> &vec);
 
 Game::Game(GameFactory *gFact) {
 
- /*
-  gFact pekar på ett konkret Factory-objekt som här ska utföra operationerna
-  makePlayer:
-  - tilldela player en pekare till ett konkret Player-objekt
-  
- */
 	obstacles = gFact->makeObstacles();
 	actions = gFact->makeActions();
-
-	title = gFact->setGameTitle();
-	
+	player = gFact->makePlayer();
+	title = gFact->setGameTitle();	
 }
 
 Game::~Game() {
