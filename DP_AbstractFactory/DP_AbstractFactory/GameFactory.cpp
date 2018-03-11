@@ -20,8 +20,9 @@ void NiceGameFactory::makeActions()
 {
 }
 
-void NiceGameFactory::setGameTitle()
+string NiceGameFactory::setGameTitle()
 {
+	return "Aprilias Nice GameFactory";
 }
 
 void NastyGameFactory::makeObstacles()
@@ -32,6 +33,7 @@ void NastyGameFactory::makeActions()
 {
 }
 
-void NastyGameFactory::setGameTitle()
+string NastyGameFactory::setGameTitle()
 {
+	return "Aprilias Nasty GameFactory";
 }

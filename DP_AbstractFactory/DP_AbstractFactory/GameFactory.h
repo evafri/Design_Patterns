@@ -33,7 +33,7 @@ public:
 
 	virtual void makeObstacles() = 0;
 	virtual void makeActions() = 0;
-	virtual void setGameTitle() = 0;
+	virtual string setGameTitle() = 0;
 };
 
 class NiceGameFactory : public GameFactory {
@@ -44,7 +44,7 @@ public:
 
 	void makeObstacles();
 	void makeActions();
-	void setGameTitle();
+	string setGameTitle();
 
 };
 /* NiceGameFactory:
@@ -71,7 +71,7 @@ public:
 
 	void makeObstacles();
 	void makeActions();
-	void setGameTitle();
+	string setGameTitle();
 
 };
 
