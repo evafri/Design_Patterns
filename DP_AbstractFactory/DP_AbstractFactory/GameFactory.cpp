@@ -23,8 +23,18 @@ vector<Obstacle*> NiceGameFactory::makeObstacles()
 	return obstacles;
 }
 
-void NiceGameFactory::makeActions()
+vector<Action*> NiceGameFactory::makeActions()
 {
+	vector<Action*> actions;
+	actions.emplace_back(new BowAndShakeHandsAction());
+	actions.emplace_back(new RunAndHideAction());
+	actions.emplace_back(new BargainAndBuyAction());
+	actions.emplace_back(new ChainsawAction());
+	actions.emplace_back(new ClimbAction());
+	actions.emplace_back(new CastAspellAction());
+	actions.emplace_back(new SurrenderAction());
+	
+	return actions;
 }
 
 string NiceGameFactory::setGameTitle()
@@ -44,8 +54,20 @@ vector<Obstacle*> NastyGameFactory::makeObstacles()
 	return obstacles;
 }
 
-void NastyGameFactory::makeActions()
+vector<Action*> NastyGameFactory::makeActions()
 {
+	vector<Action*> actions;
+	actions.emplace_back(new BowAndShakeHandsAction());
+	actions.emplace_back(new RunAndHideAction());
+	actions.emplace_back(new SwordAction());
+	actions.emplace_back(new RifleAction());
+	actions.emplace_back(new OfferFoodAction());
+	actions.emplace_back(new ChainsawAction());
+	actions.emplace_back(new CastAspellAction());
+	actions.emplace_back(new BargainAndBuyAction());
+	actions.emplace_back(new SurrenderAction());
+		  
+	return actions;
 }
 
 string NastyGameFactory::setGameTitle()

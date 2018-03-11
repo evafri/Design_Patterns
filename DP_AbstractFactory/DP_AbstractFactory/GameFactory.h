@@ -32,7 +32,7 @@ public:
    // Lämpliga operationer: se klassen Game.
 
 	virtual vector<Obstacle*> makeObstacles() = 0;
-	virtual void makeActions() = 0;
+	virtual vector<Action*> makeActions() = 0;
 	virtual string setGameTitle() = 0;
 };
 
@@ -43,21 +43,13 @@ public:
 	virtual ~NiceGameFactory() {}
 
 	vector<Obstacle*> makeObstacles();
-	void makeActions();
+	vector<Action*> makeActions();
 	string setGameTitle();
 
 };
 /* NiceGameFactory:
 
-    Lämpliga operationer.
-    (Implementationer i GameFactory.cpp)
 
-    I ett 'Nice Game' ingår följande hinder:
-    Wizard, Wall, Elephant, DPexam
-
-    Möjliga Actions:
-    BowAndShakeHandsAction, RunAndHideAction, BargainAndBuyAction,
-    ChainsawAction, ClimbAction, CastAspellAction, SurrenderAction
 
     Player:
     OrdinaryPlayer
@@ -70,22 +62,14 @@ public:
 	virtual ~NastyGameFactory() {}
 
 	vector<Obstacle*> makeObstacles();
-	void makeActions();
+	vector<Action*> makeActions();
 	string setGameTitle();
 
 };
 
 /* NastyGameFactory:
 
-    Lämpliga operationer
-    (Implementationer i GameFactory.cpp)
 
-    I ett 'Nasty Game' ingår följande hinder:
-    Dragon, Bomb, Samuray, SumoWrestler, Gangster
-
-    Möjliga Actions:
-    BowAndShakeHandsAction, RunAndHideAction, SwordAction, RifleAction,
-    OfferFoodAction, ChainsawAction, CastAspellAction, BargainAndBuyAction, SurrenderAction
 
     Player:
     HeroPlayer

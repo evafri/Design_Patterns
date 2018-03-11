@@ -19,16 +19,12 @@ Game::Game(GameFactory *gFact) {
 
  /*
   gFact pekar på ett konkret Factory-objekt som här ska utföra operationerna
-  makeObstacles:
-  - fylla upp obstacles med pekare till de Obstacle-objekt som spelet består av
-  makeActions:
-  - fylla upp actions med pekare till de Action-objekt som spelaren kan välja mellan
   makePlayer:
   - tilldela player en pekare till ett konkret Player-objekt
-  setGameTitle:
-  - ge title ett passande värde
+  
  */
 	obstacles = gFact->makeObstacles();
+	actions = gFact->makeActions();
 
 	title = gFact->setGameTitle();
 	
