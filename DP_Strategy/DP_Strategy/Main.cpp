@@ -12,12 +12,9 @@ Version : 1.1
 
 
 int main() {
-	
-	Bakery bakery = Bakery(new BakingRecepyManager("skafferi.dat"));
-	bakery.bakeAllRecepies();
-	
-	/*
-	shared_ptr<Bakery> bakery(new BakingRecepyManager("skafferi.dat"));
 
-	bakery->bakeAllRecepies();*/
+	shared_ptr<BakingRecepyManager>brm = shared_ptr<BakingRecepyManager>(new BakingRecepyManager("skafferi.dat"));
+
+	Bakery bakery = Bakery(brm);
+	bakery.bakeAllRecepies();
 }

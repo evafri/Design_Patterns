@@ -21,10 +21,10 @@ Version : 1.1
 BakingRecepyManager::BakingRecepyManager(string fileName)
 {
 	// adding all recepies to vector
-	recepies.emplace_back(new PizzaRecepy());
-	recepies.emplace_back(new SconesRecepy());
-	recepies.emplace_back(new KladdkakaRecepy());
-	recepies.emplace_back(new SockerkakaRecepy());
+	recepies.emplace_back(shared_ptr<BakingRecepy>(new PizzaRecepy()));
+	recepies.emplace_back(shared_ptr<BakingRecepy>(new SconesRecepy()));
+	recepies.emplace_back(shared_ptr<BakingRecepy>(new KladdkakaRecepy()));
+	recepies.emplace_back(shared_ptr<BakingRecepy>(new SockerkakaRecepy()));
 
 	string line;
 	ifstream inFile;
@@ -40,15 +40,6 @@ BakingRecepyManager::BakingRecepyManager(string fileName)
 	}
 }
 
-// Delete pointer in recepies
-BakingRecepyManager::~BakingRecepyManager(){
-	
-	for (auto recepy : recepies) {
-		delete recepy;
-	}
-	delete bakingRecepy;
-}
-
 // Function that tests if there are more recepies to bake
 bool BakingRecepyManager::hasAnotherRecepy()
 {
@@ -60,7 +51,7 @@ bool BakingRecepyManager::hasAnotherRecepy()
 	}
 }
 
-BakingRecepy* BakingRecepyManager::getNextBakingRecepy()
+shared_ptr<BakingRecepy> BakingRecepyManager::getNextBakingRecepy()
 {
 	bool recepyFound = hasAnotherRecepy();
 	while (recepyFound) {

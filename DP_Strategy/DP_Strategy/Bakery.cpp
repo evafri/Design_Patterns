@@ -15,19 +15,8 @@ void Bakery::bakeAllRecepies()
 {
 	// while there are recepies, function bakeIt gets called
 	while (brm->hasAnotherRecepy() == true) {
-		BakingRecepy *bakingRecepy = brm->getNextBakingRecepy();
+		shared_ptr<BakingRecepy> bakingRecepy = brm->getNextBakingRecepy();
 		cout << bakingRecepy->getName() << endl;
 		bakingRecepy->bakeIt();
 	}
 }
-/*
-// Function that bakes the recepies 
-void Bakery::bakeAllRecepies()
-{
-	// while there are recepies, function bakeIt gets called
-	while (brm->hasAnotherRecepy() == true) {
-		BakingRecepy *bakingRecepy = brm->getNextBakingRecepy();
-		cout << bakingRecepy->getName() << endl;
-		bakingRecepy->bakeIt();
-	}
-}*/

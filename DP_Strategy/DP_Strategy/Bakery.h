@@ -10,16 +10,11 @@ Version: 1.1
 
 class Bakery {
 
-private:
-	BakingRecepyManager* brm { nullptr };  // Pointer to BakingRecepyManager
-	//shared_ptr<BakingRecepyManager> brm;
+private:  
+	shared_ptr<BakingRecepyManager> brm;			// Pointer to BakingRecepyManager
 
 public:
-	
-	Bakery(BakingRecepyManager *brm) { this->brm = brm; }
-	~Bakery() { delete this->brm; }			// delete pointer
-	/*
-	Bakery() {}
-	~Bakery() {}*/
+	Bakery(shared_ptr<BakingRecepyManager> brm) { this->brm = brm; }
+	~Bakery() {}
 	void bakeAllRecepies();					// Function that call BakeIt()
 };

@@ -17,16 +17,14 @@ using namespace std;
 
 class BakingRecepyManager {
 
-private:
-	vector<BakingRecepy*> recepies;							// vector with all the recepies
-	//vector<unique_ptr<BakingRecepy*>> recepies;
+private:						
+	vector<shared_ptr<BakingRecepy>> recepies;				// vector with all the recepies
 	vector<Ingredient> availableIngredients;				// vector with all available ingredients
-	BakingRecepy* bakingRecepy;
-	//unique_ptr<BakingRecepy> bakingRecepy;
+	shared_ptr<BakingRecepy> bakingRecepy;
 public:
 	BakingRecepyManager(string fileName);
-	~BakingRecepyManager();
+	~BakingRecepyManager() {}
 	bool hasAnotherRecepy();
-	BakingRecepy* getNextBakingRecepy();
+	shared_ptr<BakingRecepy> getNextBakingRecepy();
 };
 #endif
