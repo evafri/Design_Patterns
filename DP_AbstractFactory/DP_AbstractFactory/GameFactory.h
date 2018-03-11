@@ -31,9 +31,22 @@ public:
 	virtual ~GameFactory() = default;
    // Lämpliga operationer: se klassen Game.
 
+	virtual void makeObstacles() = 0;
+	virtual void makeActions() = 0;
+	virtual void setGameTitle() = 0;
 };
 
+class NiceGameFactory : public GameFactory {
 
+public:
+	NiceGameFactory() : GameFactory() {}
+	virtual ~NiceGameFactory() {}
+
+	void makeObstacles();
+	void makeActions();
+	void setGameTitle();
+
+};
 /* NiceGameFactory:
 
     Lämpliga operationer.
@@ -50,6 +63,17 @@ public:
     OrdinaryPlayer
 */
 
+class NastyGameFactory : public GameFactory {
+
+public:
+	NastyGameFactory() : GameFactory() {}
+	virtual ~NastyGameFactory() {}
+
+	void makeObstacles();
+	void makeActions();
+	void setGameTitle();
+
+};
 
 /* NastyGameFactory:
 

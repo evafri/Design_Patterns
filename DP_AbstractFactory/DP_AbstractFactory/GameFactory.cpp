@@ -11,3 +11,27 @@ Version: 1.1
 #include "Action.h"
 
 /* Implementationer av konkreta factoryklasser */
+
+void NiceGameFactory::makeObstacles()
+{
+}
+
+void NiceGameFactory::makeActions()
+{
+}
+
+void NiceGameFactory::setGameTitle()
+{
+}
+
+void NastyGameFactory::makeObstacles()
+{
+}
+
+void NastyGameFactory::makeActions()
+{
+}
+
+void NastyGameFactory::setGameTitle()
+{
+}
