@@ -146,6 +146,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandManager.h" />
+    <ClInclude Include="DP_Command.h" />
+    <ClInclude Include="HanoiEngine.h" />
+    <ClInclude Include="MoveCommand.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CommandManager.cpp" />
+    <ClCompile Include="DP_Command.cpp" />
+    <ClCompile Include="DP_CommandMenu.cpp" />
+    <ClCompile Include="HanoiEngine.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MoveCommand.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
