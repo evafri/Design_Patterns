@@ -13,12 +13,14 @@ Version: 1.1
 #include "HanoiEngine.h"
 #include <memory>
 #include <iostream>
+#include <list>
 
 using namespace std;
 
 class CommandManager {
 
 private:
+	list<shared_ptr<Command>> CommandList;
 	
 public:
 	CommandManager() {}
@@ -26,9 +28,8 @@ public:
 	
 	bool runCommand(shared_ptr<Command> command);
 
-	/*
-	void undo() {}
-	void redo() {}
-	*/
+	void undo();
+	//void redo() {}
+	
 };
 #endif
