@@ -67,7 +67,7 @@ public:
 				break;
 			}
 			case 4: {
-
+				//commandManager->redo();
 				break;
 			}
 			case 5: {

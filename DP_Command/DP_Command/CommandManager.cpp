@@ -10,22 +10,57 @@ Version: 1.1
 
 bool CommandManager::runCommand(shared_ptr<Command> command)
 {
-	if (command->isUndoable()) {
-	commandList.push_back(command);
+	if (command->execute() && command->isUndoable()) {
+		addUndo(command);	
+		return true;
 	}
-	return command->execute();
+	return false;
 }
 
-shared_ptr<Command> CommandManager::getLastCommand()
+shared_ptr<Command> CommandManager::popUndo()
 {
 	shared_ptr<Command> command;
-	command = commandList.back();
-	return command;
+	command = undoList.back();
+	undoList.pop_back();
+	return command;	
 }
 
 bool CommandManager::undo()
 {
-	shared_ptr<Command> command;
-	command = getLastCommand();
-	return command->unExecute();
+	if (undoList.size() > 0) {
+		shared_ptr<Command> command;
+		command = popUndo();
+		if (command->unExecute()) {
+			//addRedo(command);
+		}
+		return true;
+	}
+	return false;
 }
+
+void CommandManager::addUndo(shared_ptr<Command> command)
+{
+	undoList.push_back(command);
+}
+/*
+shared_ptr<Command> CommandManager::getPreviousCommand()
+{
+	
+	shared_ptr<Command> command;
+	command = commandList.at(lastMove);
+	if (lastMove < commandList.size()) {
+		lastMove++;
+	}
+	return command;
+	
+}
+
+bool CommandManager::redo()
+{
+	shared_ptr<Command> command;
+	command = getPreviousCommand();
+	return command->execute();
+	
+	
+}
+*/
