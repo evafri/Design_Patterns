@@ -31,7 +31,7 @@ bool CommandManager::undo()
 		shared_ptr<Command> command;
 		command = popUndo();
 		if (command->unExecute()) {
-			//addRedo(command);
+			addRedo(command);
 		}
 		return true;
 	}
@@ -42,25 +42,30 @@ void CommandManager::addUndo(shared_ptr<Command> command)
 {
 	undoList.push_back(command);
 }
-/*
-shared_ptr<Command> CommandManager::getPreviousCommand()
+
+shared_ptr<Command> CommandManager::popRedo()
 {
-	
 	shared_ptr<Command> command;
-	command = commandList.at(lastMove);
-	if (lastMove < commandList.size()) {
-		lastMove++;
-	}
+	command = redoList.back();
+	redoList.pop_back();
 	return command;
 	
 }
 
 bool CommandManager::redo()
 {
-	shared_ptr<Command> command;
-	command = getPreviousCommand();
-	return command->execute();
-	
-	
+	if (redoList.size() > 0) {
+		shared_ptr<Command> command;
+		command = popRedo();
+		if (command->execute()) {
+			addUndo(command);
+		}
+		return true;
+	}
+	return false;
 }
-*/
+
+void CommandManager::addRedo(shared_ptr<Command> command)
+{
+	redoList.push_back(command);
+}

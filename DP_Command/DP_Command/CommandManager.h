@@ -23,9 +23,6 @@ private:
 	list<shared_ptr<Command>> undoList;
 	list<shared_ptr<Command>> redoList;
 
-	//int lastMove = 0;
-
-	
 public:
 	CommandManager() {}
 	~CommandManager() {}
@@ -36,10 +33,8 @@ public:
 	bool undo();
 	void addUndo(shared_ptr<Command> command);
 
-
-	/*
-	shared_ptr<Command> getPreviousCommand();
+	shared_ptr<Command> popRedo();
 	bool redo();
-	*/
+	void addRedo(shared_ptr<Command> command);
 };
 #endif
