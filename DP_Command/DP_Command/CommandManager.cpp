@@ -10,15 +10,22 @@ Version: 1.1
 
 bool CommandManager::runCommand(shared_ptr<Command> command)
 {
-	CommandList.push_back(command);
+	if (command->isUndoable()) {
+	commandList.push_back(command);
+	}
 	return command->execute();
 }
 
-void CommandManager::undo()
-{/*
+shared_ptr<Command> CommandManager::getLastCommand()
+{
 	shared_ptr<Command> command;
-	command = CommandList.back();
-	CommandList.pop_back();
-	command->unExecute();
-*/
+	command = commandList.back();
+	return command;
+}
+
+bool CommandManager::undo()
+{
+	shared_ptr<Command> command;
+	command = getLastCommand();
+	return command->unExecute();
 }

@@ -20,7 +20,7 @@ using namespace std;
 class CommandManager {
 
 private:
-	list<shared_ptr<Command>> CommandList;
+	list<shared_ptr<Command>> commandList;
 	
 public:
 	CommandManager() {}
@@ -28,7 +28,8 @@ public:
 	
 	bool runCommand(shared_ptr<Command> command);
 
-	void undo();
+	shared_ptr<Command> getLastCommand();
+	bool undo();
 	//void redo() {}
 	
 };
