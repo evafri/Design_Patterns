@@ -16,11 +16,9 @@ class Command {
 public:
 	Command() {}
 	virtual bool execute() = 0;
-	/*
-	virtual bool unExecute() = 0;
+	//virtual bool unExecute() = 0;
 	virtual bool isUndoable() = 0;
-	virtual void readFromStream(ifstream&) = 0;
-	*/
+	//virtual void readFromStream(ifstream&) = 0;
 	virtual ~Command() {}
 };
 #endif

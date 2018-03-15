@@ -23,10 +23,8 @@ public:
 	~ResetCommand() {}
 
 	bool execute();
-	/*
-	bool unExecute();
+	//bool unExecute();
 	bool isUndoable();
-	void readFromStream(ifstream&);
-	*/
+	//void readFromStream(ifstream&);
 };
 

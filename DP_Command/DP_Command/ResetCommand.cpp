@@ -14,3 +14,8 @@ bool ResetCommand::execute()
 	receiver->reset(numberOfDiscs);
 	return true;
 }
+
+bool ResetCommand::isUndoable()
+{
+	return false;
+}

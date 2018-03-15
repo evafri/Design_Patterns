@@ -12,3 +12,8 @@ bool MoveCommand::execute()
 {
 	return receiver->move(moveFrom, moveTo);
 }
+
+bool MoveCommand::isUndoable()
+{
+	return true;
+}

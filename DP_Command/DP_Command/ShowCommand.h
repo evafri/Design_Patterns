@@ -22,9 +22,7 @@ public:
 	~ShowCommand() {}
 
 	bool execute();
-	/*
-	bool unExecute();
+	//bool unExecute();
 	bool isUndoable();
-	void readFromStream(ifstream&);
-	*/
+	//void readFromStream(ifstream&);
 };

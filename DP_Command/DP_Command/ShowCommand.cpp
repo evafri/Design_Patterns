@@ -13,3 +13,8 @@ bool ShowCommand::execute()
 	receiver->show();
 	return true;
 }
+
+bool ShowCommand::isUndoable()
+{
+	return false;
+}
