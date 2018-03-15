@@ -15,6 +15,11 @@ bool ResetCommand::execute()
 	return true;
 }
 
+bool ResetCommand::unExecute()
+{
+	return false;
+}
+
 bool ResetCommand::isUndoable()
 {
 	return false;

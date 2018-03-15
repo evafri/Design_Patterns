@@ -36,19 +36,25 @@ public:
 
 		while (keepOn) {
 			cout << "Commands" << endl;
-			cout << "1. Move" << endl;
-			cout << "2. Show" << endl;
-			cout << "3. Reset" << endl;
+			cout << "1. Replay" << endl;
+			cout << "2. Move" << endl;
+			cout << "3. Undo" << endl;
+			cout << "4. Redo" << endl;
+			cout << "5. Show" << endl;
+			cout << "6. Reset" << endl;
 			cout << "0. Quit" << endl;
 
 			// Clear input stream
-			while (!(cin >> choice) || choice <0 || choice >3) {
+			while (!(cin >> choice) || choice < 0 || choice > 6) {
 				cin.clear();
 				cin.ignore(cin.rdbuf()->in_avail());
 			}
 
 			switch (choice) {
 			case 1: {
+				break;
+			}
+			case 2: {
 				cout << "Move From? " << endl;
 				cin >> moveFrom;
 				cout << "Move To? " << endl;
@@ -56,11 +62,19 @@ public:
 				command_issuer->move(moveFrom, moveTo); 
 				break;
 			}
-			case 2: {
+			case 3: {
+				commandManager->undo();
+				break;
+			}
+			case 4: {
+
+				break;
+			}
+			case 5: {
 				command_issuer->show();
 				break;
 			}
-			case 3: {
+			case 6: {
 				cout << "How many discs? " << endl;
 				cin >> numberOfDiscs;
 				command_issuer->reset(numberOfDiscs);

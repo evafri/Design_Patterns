@@ -24,7 +24,7 @@ public:
 	~MoveCommand() {}
 
 	bool execute();
-	//bool unExecute();
+	bool unExecute();
 	bool isUndoable();
 	//void readFromStream(ifstream&);
 };

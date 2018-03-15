@@ -14,6 +14,11 @@ bool ShowCommand::execute()
 	return true;
 }
 
+bool ShowCommand::unExecute()
+{
+	return false;
+}
+
 bool ShowCommand::isUndoable()
 {
 	return false;
