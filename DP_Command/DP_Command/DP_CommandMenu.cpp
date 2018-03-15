@@ -32,15 +32,17 @@ public:
 		bool keepOn = true;
 		int moveFrom;
 		int moveTo;
+		int numberOfDiscs;
 
 		while (keepOn) {
 			cout << "Commands" << endl;
 			cout << "1. Move" << endl;
 			cout << "2. Show" << endl;
+			cout << "3. Reset" << endl;
 			cout << "0. Quit" << endl;
 
 			// Clear input stream
-			while (!(cin >> choice) || choice <0 || choice >2) {
+			while (!(cin >> choice) || choice <0 || choice >3) {
 				cin.clear();
 				cin.ignore(cin.rdbuf()->in_avail());
 			}
@@ -56,6 +58,12 @@ public:
 			}
 			case 2: {
 				command_issuer->show();
+				break;
+			}
+			case 3: {
+				cout << "How many discs? " << endl;
+				cin >> numberOfDiscs;
+				command_issuer->reset(numberOfDiscs);
 				break;
 			}
 			case 0:	keepOn = false; 

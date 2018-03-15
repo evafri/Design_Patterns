@@ -1,5 +1,5 @@
 /*
-File: ShowManager.cpp
+File: ShowCommand.cpp
 Purpose: Implementation of ShowCommand
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-14

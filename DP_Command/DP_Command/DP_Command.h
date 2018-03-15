@@ -20,7 +20,6 @@ private:
 	shared_ptr<HanoiEngine> receiver;
 
 public:
-	//DP_Command(shared_ptr<CommandManager> i, shared_ptr<HanoiEngine> r) : invoker(i), receiver(r){}
 	DP_Command(shared_ptr<CommandManager> i) : invoker(i) {
 		receiver = shared_ptr<HanoiEngine>(new HanoiEngine());
 	}
@@ -28,8 +27,7 @@ public:
 
 	// void replay() {}
 	bool move(int aFrom, int aTo);
-	/*
-	void reset() {}*/
+	void reset(int numberOfDiscs);
 	void show();
 	
 };
