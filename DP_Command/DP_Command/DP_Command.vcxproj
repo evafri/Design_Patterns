@@ -151,6 +151,7 @@
     <ClInclude Include="DP_Command.h" />
     <ClInclude Include="HanoiEngine.h" />
     <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="ResetCommand.h" />
     <ClInclude Include="ShowCommand.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClCompile Include="HanoiEngine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="ResetCommand.cpp" />
     <ClCompile Include="ShowCommand.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
