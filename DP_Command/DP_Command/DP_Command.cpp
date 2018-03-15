@@ -8,6 +8,7 @@ Version: 1.1
 
 #include "DP_Command.h"
 #include "MoveCommand.h"
+#include "ShowCommand.h"
 
 bool DP_Command::move(int aFrom, int aTo)
 {
@@ -17,6 +18,8 @@ bool DP_Command::move(int aFrom, int aTo)
 
 void DP_Command::show()
 {
+	shared_ptr<Command> showCommand = shared_ptr<Command>(new ShowCommand(this->receiver));
+	invoker->runCommand(showCommand);
 }
 
 

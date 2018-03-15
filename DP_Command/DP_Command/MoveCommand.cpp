@@ -8,7 +8,6 @@ Version: 1.1
 
 #include "MoveCommand.h"
 
-
 bool MoveCommand::execute()
 {
 	return receiver->move(moveFrom, moveTo);

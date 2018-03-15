@@ -36,11 +36,11 @@ public:
 		while (keepOn) {
 			cout << "Commands" << endl;
 			cout << "1. Move" << endl;
-
+			cout << "2. Show" << endl;
 			cout << "0. Quit" << endl;
 
 			// Clear input stream
-			while (!(cin >> choice) || choice <0 || choice >1) {
+			while (!(cin >> choice) || choice <0 || choice >2) {
 				cin.clear();
 				cin.ignore(cin.rdbuf()->in_avail());
 			}
@@ -51,12 +51,15 @@ public:
 				cin >> moveFrom;
 				cout << "Move To? " << endl;
 				cin >> moveTo;
-				command_issuer->move(moveFrom, moveTo); break;
+				command_issuer->move(moveFrom, moveTo); 
+				break;
 			}
 			case 2: {
-
+				command_issuer->show();
+				break;
 			}
-			case 0:	keepOn = false; break;
+			case 0:	keepOn = false; 
+				break;
 			}
 		}
 	}

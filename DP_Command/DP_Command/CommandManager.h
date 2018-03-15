@@ -20,7 +20,6 @@ class CommandManager {
 
 private:
 	
-	
 public:
 	CommandManager() {}
 	~CommandManager() {}
