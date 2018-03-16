@@ -69,3 +69,4 @@ void CommandManager::addRedo(shared_ptr<Command> command)
 {
 	redoList.push_back(command);
 }
+

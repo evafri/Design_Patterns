@@ -11,6 +11,7 @@ Version: 1.1
 #include "HanoiEngine.h"
 #include <memory>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -18,7 +19,6 @@ class DP_Command {
 private:
 	shared_ptr<CommandManager> invoker;
 	shared_ptr<HanoiEngine> receiver;
-
 public:
 	DP_Command(shared_ptr<CommandManager> i) : invoker(i) {
 		receiver = shared_ptr<HanoiEngine>(new HanoiEngine());

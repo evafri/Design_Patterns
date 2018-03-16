@@ -8,7 +8,6 @@ Version: 1.1
 #ifndef COMMANDMANAGER_H
 #define COMMANDMANAGER_H
 
-
 #include "Command.h"
 #include "HanoiEngine.h"
 #include <memory>
@@ -21,18 +20,16 @@ class CommandManager {
 
 private:
 	list<shared_ptr<Command>> undoList;
-	list<shared_ptr<Command>> redoList;
+	list<shared_ptr<Command>> redoList;	
 
 public:
 	CommandManager() {}
 	~CommandManager() {}
 	
 	bool runCommand(shared_ptr<Command> command);
-
 	shared_ptr<Command> popUndo();
 	bool undo();
 	void addUndo(shared_ptr<Command> command);
-
 	shared_ptr<Command> popRedo();
 	bool redo();
 	void addRedo(shared_ptr<Command> command);

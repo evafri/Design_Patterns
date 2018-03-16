@@ -18,6 +18,7 @@ private:
 	shared_ptr<HanoiEngine> receiver;
 	int moveFrom;
 	int moveTo;
+	string name = "MoveCommand";
 
 public:
 	MoveCommand(shared_ptr<HanoiEngine> r, int aFrom, int aTo) : receiver(r), moveFrom(aFrom), moveTo(aTo) {}
@@ -27,4 +28,6 @@ public:
 	bool unExecute();
 	bool isUndoable();
 	//void readFromStream(ifstream&);
+
+	string getName();
 };

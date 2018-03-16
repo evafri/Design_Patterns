@@ -16,6 +16,7 @@ using namespace std;
 class ShowCommand : public Command {
 private:
 	shared_ptr<HanoiEngine> receiver;
+	string name = "ShowCommand";
 
 public:
 	ShowCommand(shared_ptr<HanoiEngine> r) : receiver(r) {}
@@ -25,4 +26,5 @@ public:
 	bool unExecute();
 	bool isUndoable();
 	//void readFromStream(ifstream&);
+	string getName();
 };

@@ -7,9 +7,13 @@ Version: 1.1
 */
 
 #include "ShowCommand.h"
+#include <string>
 
 bool ShowCommand::execute()
 {
+	ofstream logFile("Hanoi.log", ios_base::out | ios_base::app);
+	logFile << this->getName() << "\n";
+	logFile.close();
 	receiver->show();
 	return true;
 }
@@ -22,4 +26,9 @@ bool ShowCommand::unExecute()
 bool ShowCommand::isUndoable()
 {
 	return false;
+}
+
+string ShowCommand::getName()
+{
+	return name;
 }
