@@ -12,6 +12,7 @@ Version: 1.1
 
 using namespace std;
 
+// Function that reads to logfile and call show()
 bool ShowCommand::execute()
 {
 	ofstream logFile("Hanoi.log", ios_base::out | ios_base::app);

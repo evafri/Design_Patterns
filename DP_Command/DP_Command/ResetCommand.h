@@ -1,6 +1,6 @@
 /*
 File: ResetCommand.h
-Purpose: Definition of concrete Command class ResetCommand
+Purpose: Definition of concrete Command class ResetCommand. ResetCommand executes HanoiEngines reset-function.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-14
 Version: 1.1

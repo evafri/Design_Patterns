@@ -1,6 +1,6 @@
 /*
 File: MoveCommand.h
-Purpose: Definition of concrete Command class MoveCommand
+Purpose: Definition of concrete Command class MoveCommand. MoveCommand executes HanoiEngines move-function.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-14
 Version: 1.1

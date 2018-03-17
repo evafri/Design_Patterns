@@ -1,6 +1,6 @@
 /*
 File: ShowCommand.h
-Purpose: Definition of concrete Command class ShowCommand
+Purpose: Definition of concrete Command class ShowCommand. ShowCommand executes HanoiEngines show-function.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-14
 Version: 1.1

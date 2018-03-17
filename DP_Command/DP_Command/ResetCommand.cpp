@@ -6,9 +6,9 @@ Date: 2018-03-14
 Version: 1.1
 */
 
-
 #include "ResetCommand.h"
 
+// Function that executes reset.
 bool ResetCommand::execute()
 {
 	receiver->reset(numberOfDiscs);

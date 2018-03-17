@@ -1,6 +1,6 @@
 /*
 File: CommandManager.h
-Purpose: Definition of class CommandManager, a command invoker
+Purpose: Definition of class CommandManager, the command invoker
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-14
 Version: 1.1
