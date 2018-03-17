@@ -10,18 +10,24 @@ Version: 1.1
 #include <fstream>
 #include <string>
 
+using namespace std;
+
 bool MoveCommand::execute()
 {
 	ofstream logFile("Hanoi.log", ios_base::out | ios_base::app);
-	logFile << this->getName() << "\n" << this->moveFrom << ", " << this->moveTo << "\n";
+
+	//logFile << this->getName() << " " << this->moveTo << " " << this->moveFrom  << "\n";
+	logFile << this->getName() << ":" << this->moveFrom << ":" << this->moveTo << ":" << "\n";
 	logFile.close();
+
 	return receiver->move(moveFrom, moveTo);
 }
 
 bool MoveCommand::unExecute()
 {
 	ofstream logFile("Hanoi.log", ios_base::out | ios_base::app);
-	logFile << this->getName() << "\n" << this->moveTo << ", " << this->moveFrom << "\n";
+	//logFile << this->getName() << " " << this->moveTo << " " << this->moveFrom  << "\n";
+	logFile << this->getName() << ":" << this->moveTo << ":" << this->moveFrom << ":" << "\n";
 	logFile.close();
 	return receiver->move(moveTo, moveFrom);
 }
@@ -29,6 +35,30 @@ bool MoveCommand::unExecute()
 bool MoveCommand::isUndoable()
 {
 	return true;
+}
+
+void MoveCommand::readFromStream(ifstream &instream)
+{
+	string line1;
+	string line2;
+	string endline;
+
+	int moveFrom;
+	int moveTo;
+
+	if (instream.is_open())
+	{
+		getline(instream, line1, ':');
+		getline(instream, line2, ':');
+		getline(instream, endline);
+		moveFrom = atoi(line1.c_str());
+		moveTo = atoi(line2.c_str());
+		
+		receiver->move(moveFrom, moveTo);
+	}
+	else {
+		cout << "Unable to open file" << endl;
+	}
 }
 
 string MoveCommand::getName()

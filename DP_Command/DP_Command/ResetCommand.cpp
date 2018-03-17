@@ -24,3 +24,7 @@ bool ResetCommand::isUndoable()
 {
 	return false;
 }
+
+void ResetCommand::readFromStream(ifstream &instream)
+{
+}

@@ -8,11 +8,14 @@ Version: 1.1
 
 #include "ShowCommand.h"
 #include <string>
+#include <fstream>
+
+using namespace std;
 
 bool ShowCommand::execute()
 {
 	ofstream logFile("Hanoi.log", ios_base::out | ios_base::app);
-	logFile << this->getName() << "\n";
+	logFile << this->getName() << ":" << "\n";
 	logFile.close();
 	receiver->show();
 	return true;
@@ -26,6 +29,19 @@ bool ShowCommand::unExecute()
 bool ShowCommand::isUndoable()
 {
 	return false;
+}
+
+void ShowCommand::readFromStream(ifstream &instream)
+{
+	string line;
+	if (instream.is_open())
+	{
+		getline(instream, line, '\r');
+		receiver->show();
+	}
+	else {
+		cout << "Unable to open file" << endl;
+	}
 }
 
 string ShowCommand::getName()

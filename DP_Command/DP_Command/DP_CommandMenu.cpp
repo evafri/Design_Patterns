@@ -1,6 +1,6 @@
 /*
 File: DP_CommandMenu.cpp
-Purpose: Implementation of class DP_CommandMenu
+Purpose: Implementation of class DP_CommandMenu. This class holds the menu. The user can choose to start a new game or replay an old one.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-14
 Version: 1.1
@@ -44,7 +44,6 @@ public:
 			cout << "6. Reset" << endl;
 			cout << "0. Quit" << endl;
 
-			// Clear input stream
 			while (!(cin >> choice) || choice < 0 || choice > 6) {
 				cin.clear();
 				cin.ignore(cin.rdbuf()->in_avail());
@@ -52,9 +51,11 @@ public:
 
 			switch (choice) {
 			case 1: {
+				command_issuer->replay();
 				break;
 			}
 			case 2: {
+				cout << endl;
 				cout << "Move From? " << endl;
 				cin >> moveFrom;
 				cout << "Move To? " << endl;
@@ -75,6 +76,7 @@ public:
 				break;
 			}
 			case 6: {
+				cout << endl;
 				cout << "How many discs? " << endl;
 				cin >> numberOfDiscs;
 				command_issuer->reset(numberOfDiscs);
@@ -85,5 +87,4 @@ public:
 			}
 		}
 	}
-
 };

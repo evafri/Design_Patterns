@@ -36,6 +36,9 @@
     <ClInclude Include="ResetCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Replayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HanoiEngine.cpp">
@@ -60,6 +63,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ResetCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Replayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

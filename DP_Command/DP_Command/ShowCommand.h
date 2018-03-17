@@ -25,6 +25,6 @@ public:
 	bool execute();
 	bool unExecute();
 	bool isUndoable();
-	//void readFromStream(ifstream&);
+	void readFromStream(ifstream& instream);
 	string getName();
 };

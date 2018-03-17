@@ -151,6 +151,7 @@
     <ClInclude Include="DP_Command.h" />
     <ClInclude Include="HanoiEngine.h" />
     <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="Replayer.h" />
     <ClInclude Include="ResetCommand.h" />
     <ClInclude Include="ShowCommand.h" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClCompile Include="HanoiEngine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="Replayer.cpp" />
     <ClCompile Include="ResetCommand.cpp" />
     <ClCompile Include="ShowCommand.cpp" />
   </ItemGroup>

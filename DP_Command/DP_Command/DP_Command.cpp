@@ -11,22 +11,31 @@ Version: 1.1
 #include "ShowCommand.h"
 #include "ResetCommand.h"
 
+// Fumction for replaying the game
+void DP_Command::replay()
+{
+	commandReplayer->readFromLogFile();
+}
+
+// Function for making a move
 bool DP_Command::move(int aFrom, int aTo)
 {
 	shared_ptr<Command> moveCommand = shared_ptr<Command>(new MoveCommand(this->receiver, aFrom, aTo));
-	return invoker->runCommand(moveCommand);
+	return commandManager->runCommand(moveCommand);
 }
 
+// Function for resetting the game
 void DP_Command::reset(int numberOfDiscs)
 {
 	shared_ptr<Command> resetCommand = shared_ptr<Command>(new ResetCommand(this->receiver, numberOfDiscs));
-	invoker->runCommand(resetCommand);
+	commandManager->runCommand(resetCommand);
 }
 
+// Function for showing moves
 void DP_Command::show()
 {
 	shared_ptr<Command> showCommand = shared_ptr<Command>(new ShowCommand(this->receiver));
-	invoker->runCommand(showCommand);
+	commandManager->runCommand(showCommand);
 }
 
 
