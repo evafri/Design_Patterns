@@ -6,11 +6,15 @@ Date : 2018-03-18
 Version : 1.1
 */
 
+#include "Beverage.h"
+#include <memory>
+
 class Menu {
 public:
 	Menu() {}
 	~Menu() {}
 
-	bool createMenu();
+	shared_ptr<Beverage> createBeverage();
+	void addBeverageAccessories();
 	void run();
 };

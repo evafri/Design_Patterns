@@ -24,6 +24,6 @@ public:
 	~Sugar() {}
 
 	string getName() {
-		BeverageDecorator::getName().append(name());
+		return BeverageDecorator::getName().append(name());
 	}
 };
