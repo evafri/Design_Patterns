@@ -27,6 +27,9 @@ public:
 	string getName() {
 		return beverageDecorator->getName();
 	}
+	int getPrice() {
+		return beverageDecorator->getPrice();
+	}
 };
 
 #endif

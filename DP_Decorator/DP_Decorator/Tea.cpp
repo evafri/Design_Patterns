@@ -12,3 +12,8 @@ string Tea::getName()
 {
 	return "Tea";
 }
+
+int Tea::getPrice()
+{
+	return 10;
+}

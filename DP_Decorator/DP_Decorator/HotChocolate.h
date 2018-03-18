@@ -15,7 +15,6 @@ class HotChocolate : public Beverage {
 public:
 	HotChocolate() {}
 	virtual ~HotChocolate() {}
-	//virtual void make() = 0;
 	string getName();
-	//int getPrice();
+	int getPrice();
 };

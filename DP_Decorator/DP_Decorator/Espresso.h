@@ -15,8 +15,7 @@ class Espresso : public Beverage {
 public:
 	Espresso() {}
 	virtual ~Espresso() {}
-	//virtual void make() = 0;
 	string getName();
-	//int getPrice();
+	int getPrice();
 };
 

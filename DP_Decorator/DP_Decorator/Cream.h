@@ -18,12 +18,18 @@ private:
 	string name() {
 		return " + Cream";
 	}
+	int creamPrice;
 
 public:
-	Cream(shared_ptr<Beverage> decorator) : BeverageDecorator(decorator) {}
+	Cream(shared_ptr<Beverage> decorator) : BeverageDecorator(decorator) {
+		creamPrice = 2;
+	}
 	~Cream() {}
 
 	string getName() {
 		return BeverageDecorator::getName().append(name());
+	}
+	int getPrice() {
+		return BeverageDecorator::getPrice() + creamPrice;
 	}
 };

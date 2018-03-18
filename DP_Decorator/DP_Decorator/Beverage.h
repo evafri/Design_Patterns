@@ -18,9 +18,8 @@ class Beverage {
 public:
 	Beverage() {}
 	virtual ~Beverage() {}
-	//virtual void make() = 0;
 	virtual string getName() = 0;
-	//virtual int getPrice() = 0;
+	virtual int getPrice() = 0;
 };
 
 #endif

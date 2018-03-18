@@ -12,3 +12,8 @@ string HotChocolate::getName()
 {
 	return "Hot Chocolate";
 }
+
+int HotChocolate::getPrice()
+{
+	return 12;
+}

@@ -13,3 +13,8 @@ string Espresso::getName()
 {
 	return "Espresso";
 }
+
+int Espresso::getPrice()
+{
+	return 14;
+}

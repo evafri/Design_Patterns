@@ -12,3 +12,8 @@ string Coffee::getName()
 {
 	return "Coffee";
 }
+
+int Coffee::getPrice()
+{
+	return 10;
+}

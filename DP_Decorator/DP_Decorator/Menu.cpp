@@ -161,7 +161,7 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 
 void Menu::displayBeverage(shared_ptr<Beverage> beverage)
 {
-	cout << "Your order is: " << beverage->getName() << endl;
+	cout << "Your order is: " << beverage->getName() << "and your total is: " << beverage->getPrice() << " kronor" << endl;
 }
 
 void Menu::run()
