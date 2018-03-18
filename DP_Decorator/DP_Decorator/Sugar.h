@@ -1,6 +1,6 @@
 /*
 File: Sugar.h
-Purpose: Definition of decorator subclass Sugar
+Purpose: Definition of concreteDecorator class Sugar.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-18
 Version: 1.1

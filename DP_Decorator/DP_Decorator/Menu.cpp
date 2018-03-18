@@ -23,6 +23,7 @@ Version : 1.1
 
 using namespace std;
 
+// Function where user gets to choose beverage
 shared_ptr<Beverage> Menu::createBeverage()
 {
 	shared_ptr<Beverage> beverage;
@@ -70,14 +71,15 @@ shared_ptr<Beverage> Menu::createBeverage()
 			break;
 		}
 		default: keepOn = false;
-			beverage = nullptr;
+			beverage = nullptr;				// Returns nullptr if user wants to quit
 			return beverage;
 			break;
 		}
 	}
-	return beverage;
+	return beverage;				// returns a pointer with selected beverage
 }
 
+// Function that adds topping to beverage.
 shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 {
 	shared_ptr<Beverage> beverageDecorator = nullptr;
@@ -106,6 +108,7 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			{
 			case 1:
 			{
+				// If user wants to add the same topping again.
 				if (beverageDecorator != nullptr) {
 					beverageDecorator = shared_ptr<BeverageDecorator>(new Sugar(beverageDecorator));
 				}
@@ -116,6 +119,7 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			}
 			case 2:
 			{
+				// If user wants to add the same topping again.
 				if (beverageDecorator != nullptr) {
 					beverageDecorator = shared_ptr<BeverageDecorator>(new Milk(beverageDecorator));
 				}
@@ -126,6 +130,7 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			}
 			case 3:
 			{
+				// If user wants to add the same topping again.
 				if (beverageDecorator != nullptr) {
 					beverageDecorator = shared_ptr<BeverageDecorator>(new Cream(beverageDecorator));
 				}
@@ -136,6 +141,7 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			}
 			case 4:
 			{
+				// If user wants to add the same topping again.
 				if (beverageDecorator != nullptr) {
 					beverageDecorator = shared_ptr<BeverageDecorator>(new WhippedCream(beverageDecorator));
 				}
@@ -151,7 +157,7 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 					return beverageDecorator;
 				}
 				else {
-					return beverage;
+					return beverage;					// If user doesn't want to add topping
 				}
 			}
 		}
@@ -166,21 +172,23 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			}
 		}
 	}
-	return beverageDecorator;
+	return beverageDecorator;						// returns a pointer with selected toppings
 }
 
+// Function that display order and price.
 void Menu::displayBeverage(shared_ptr<Beverage> beverage)
 {
 	cout << "Your order is: " << beverage->getName() << " and your total is: " << beverage->getPrice() << " kronor" << endl;
 
 }
 
+// Function that starts the menus. 
 void Menu::run()
 {
 	bool newOrder = true;
 	
 	while (newOrder) {
-		shared_ptr<Beverage> beverage = createBeverage();
+		shared_ptr<Beverage> beverage = createBeverage();	
 		if (beverage != nullptr) {
 			shared_ptr<Beverage> beverageDecorator = addBeverageAccessories(beverage);
 			displayBeverage(beverageDecorator);

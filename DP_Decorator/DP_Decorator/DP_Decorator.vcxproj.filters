@@ -30,6 +30,24 @@
     <ClInclude Include="Beverage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Espresso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HotChocolate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Milk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WhippedCream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Menu.cpp">
@@ -39,6 +57,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Coffee.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Espresso.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HotChocolate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

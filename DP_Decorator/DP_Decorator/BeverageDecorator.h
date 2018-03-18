@@ -18,7 +18,7 @@ using namespace std;
 class BeverageDecorator : public Beverage {
 
 private:
-	shared_ptr<Beverage> beverageDecorator;
+	shared_ptr<Beverage> beverageDecorator;					// Pointer to Beverage
 
 public:
 	BeverageDecorator(shared_ptr<Beverage> decorator) : beverageDecorator(decorator) {}

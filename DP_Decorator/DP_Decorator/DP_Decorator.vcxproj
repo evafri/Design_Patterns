@@ -149,13 +149,22 @@
     <ClInclude Include="BeverageDecorator.h" />
     <ClInclude Include="Coffee.h" />
     <ClInclude Include="Beverage.h" />
+    <ClInclude Include="Cream.h" />
+    <ClInclude Include="Espresso.h" />
+    <ClInclude Include="HotChocolate.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Milk.h" />
     <ClInclude Include="Sugar.h" />
+    <ClInclude Include="Tea.h" />
+    <ClInclude Include="WhippedCream.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Coffee.cpp" />
+    <ClCompile Include="Espresso.cpp" />
+    <ClCompile Include="HotChocolate.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Tea.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 /*
 File: Cream.h
-Purpose: Definition of decorator subclass Cream
+Purpose: Definition of concreteDecorator class Cream.
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-18
 Version: 1.1

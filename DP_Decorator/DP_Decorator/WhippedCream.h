@@ -1,6 +1,6 @@
 /*
 File: WhippedCream.h
-Purpose: Definition of decorator subclass WhippedCream
+Purpose: Definition of concreteDecorator class WhippedCream
 Author: Eva Frisell <evmo1600>
 Date: 2018-03-18
 Version: 1.1
