@@ -16,6 +16,9 @@ Version : 1.1
 #include "Tea.h"
 #include "HotChocolate.h"
 #include "Sugar.h"
+#include "Milk.h"
+#include "Cream.h"
+#include "WhippedCream.h"
 #include "BeverageDecorator.h"
 
 using namespace std;
@@ -89,9 +92,9 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			cout << endl;
 			cout << "Available beverage accessories" << endl;
 			cout << "1. Sugar" << endl;
-			//cout << "2. Milk" << endl;
-			//cout << "3. Cream" << endl;
-			//cout << "4. Whipped cream" << endl;
+			cout << "2. Milk" << endl;
+			cout << "3. Cream" << endl;
+			cout << "4. Whipped cream" << endl;
 			cout << "5. Quit" << endl << endl;
 
 			cout << "My beverage accessories choice are: ";
@@ -111,14 +114,32 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 			}
 			case 2:
 			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new Milk(beverageDecorator));
+				}
+				else {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new Milk(beverage));
+				}
 				break;
 			}
 			case 3:
 			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new Cream(beverageDecorator));
+				}
+				else {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new Cream(beverage));
+				}
 				break;
 			}
 			case 4:
 			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new WhippedCream(beverageDecorator));
+				}
+				else {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new WhippedCream(beverage));
+				}
 				break;
 			}
 			default: keepOn = false;
