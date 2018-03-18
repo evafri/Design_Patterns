@@ -8,10 +8,12 @@ Version : 1.1
 
 #include <iostream>
 #include <memory>
+#include <string>
 #include "Menu.h"
 #include "Beverage.h"
 #include "Coffee.h"
 #include "Sugar.h"
+#include "BeverageDecorator.h"
 
 using namespace std;
 
@@ -33,16 +35,12 @@ shared_ptr<Beverage> Menu::createBeverage()
 		cout << "My beverage choice are: ";
 		cin >> beverageChoice;
 
-		// skapa vald dryck
 		switch (beverageChoice)
 		{
 		case 1:
 		{
 			beverage = shared_ptr<Beverage>(new Coffee());
-			beverage->getName();
-			addBeverageAccessories();
 			keepOn = false;
-			return beverage;
 			break;
 		}
 
@@ -63,21 +61,22 @@ shared_ptr<Beverage> Menu::createBeverage()
 			break;
 		}
 	}
+	return beverage;
 }
 
-void Menu::addBeverageAccessories()
+shared_ptr<BeverageDecorator> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 {
-	//shared_ptr<Beverage> beverage = createBeverage();
+	shared_ptr<BeverageDecorator> beverageDecorator;
 	int beverageAccessoriesChoice;
 	int addBeverageAccessories;
 	bool keepOn = true;
 
+	while (keepOn) {
 	cout << "Do you want add beverage accessories? Please press 1. Otherwise press 0!" << endl;
 	cin >> addBeverageAccessories;
 
 	if (addBeverageAccessories == 1) {
 
-		while (keepOn) {
 			cout << endl;
 			cout << "Available beverage accessories" << endl;
 			cout << "1. Sugar" << endl;
@@ -88,39 +87,45 @@ void Menu::addBeverageAccessories()
 
 			cout << "My beverage accessories choice are: ";
 			cin >> beverageAccessoriesChoice;
+
+			switch (beverageAccessoriesChoice)
+			{
+			case 1:
+			{
+				beverageDecorator = shared_ptr<BeverageDecorator>(new Sugar(beverage));
+				//keepOn = true;
+				break;
+			}
+			case 2:
+			{
+				break;
+			}
+			case 3:
+			{
+				break;
+			}
+			case 4:
+			{
+				break;
+			}
+			default: keepOn = false;
+			}
 		}
-
-	switch (beverageAccessoriesChoice)
-	{
-	case 1:
-	{
-		//beverage = shared_ptr<Beverage>(new Sugar(beverage));
-		//beverage->getName();
-	
-		break;
-	}
-	case 2:
-	{
-		break;
-	}
-	case 3:
-	{
-		break;
-	}
-	case 4:
-	{
-		break;
-	}
-	default: keepOn = false;
-	}
-	}
 	else {
-
+		keepOn = false;
 	}
+	}
+	return beverageDecorator;
+}
+
+void Menu::displayBeverage(shared_ptr<Beverage> beverage)
+{
+	cout << "Your order is: " << beverage->getName() << endl;
 }
 
 void Menu::run()
 {
-	createBeverage();
-	
+	shared_ptr<Beverage> beverage = createBeverage();
+	shared_ptr<BeverageDecorator> beverageDecorator = addBeverageAccessories(beverage);
+	displayBeverage(beverageDecorator);
 }

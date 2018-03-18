@@ -6,6 +6,9 @@ Date: 2018-03-18
 Version: 1.1
 */
 
+#ifndef BEVERAGEDECORATOR_H
+#define BEVERAGEDECORATOR_H
+
 #include "Beverage.h"
 #include <iostream>
 #include <memory>
@@ -25,3 +28,5 @@ public:
 		return beverageDecorator->getName();
 	}
 };
+
+#endif

@@ -7,6 +7,7 @@ Version : 1.1
 */
 
 #include "Beverage.h"
+#include "BeverageDecorator.h"
 #include <memory>
 
 class Menu {
@@ -15,6 +16,7 @@ public:
 	~Menu() {}
 
 	shared_ptr<Beverage> createBeverage();
-	void addBeverageAccessories();
+	shared_ptr<BeverageDecorator> addBeverageAccessories(shared_ptr<Beverage> beverage);
+	void displayBeverage(shared_ptr<Beverage> beverage);
 	void run();
 };
