@@ -20,7 +20,9 @@ private:
 
 public:
 	ResetCommand(shared_ptr<HanoiEngine> r, int numberOfDiscs) : receiver(r), numberOfDiscs(numberOfDiscs){}
-	~ResetCommand() {}
+	~ResetCommand() {
+		remove("Hanoi.log");
+	}
 
 	bool execute();
 	bool unExecute();
