@@ -70,6 +70,8 @@ shared_ptr<Beverage> Menu::createBeverage()
 			break;
 		}
 		default: keepOn = false;
+			beverage = nullptr;
+			return beverage;
 			break;
 		}
 	}
@@ -142,7 +144,15 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 				}
 				break;
 			}
-			default: keepOn = false;
+			default: 
+				keepOn = false;
+				if (beverageDecorator != nullptr)
+				{
+					return beverageDecorator;
+				}
+				else {
+					return beverage;
+				}
 			}
 		}
 		else {
@@ -161,12 +171,26 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 
 void Menu::displayBeverage(shared_ptr<Beverage> beverage)
 {
-	cout << "Your order is: " << beverage->getName() << "and your total is: " << beverage->getPrice() << " kronor" << endl;
+	cout << "Your order is: " << beverage->getName() << " and your total is: " << beverage->getPrice() << " kronor" << endl;
+
 }
 
 void Menu::run()
 {
-	shared_ptr<Beverage> beverage = createBeverage();
-	shared_ptr<Beverage> beverageDecorator = addBeverageAccessories(beverage);
-	displayBeverage(beverageDecorator);
+	bool newOrder = true;
+	
+	while (newOrder) {
+		shared_ptr<Beverage> beverage = createBeverage();
+		if (beverage != nullptr) {
+			shared_ptr<Beverage> beverageDecorator = addBeverageAccessories(beverage);
+			displayBeverage(beverageDecorator);
+		}
+			cout << endl;
+			cout << "Press 1 if you want to make another order and 0 if you are finished!" << endl;
+			cin >> newOrder;
+
+			if (newOrder == 0) {
+				newOrder = false;
+			}
+		}
 }
