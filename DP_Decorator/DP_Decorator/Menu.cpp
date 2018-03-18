@@ -12,6 +12,9 @@ Version : 1.1
 #include "Menu.h"
 #include "Beverage.h"
 #include "Coffee.h"
+#include "Espresso.h"
+#include "Tea.h"
+#include "HotChocolate.h"
 #include "Sugar.h"
 #include "BeverageDecorator.h"
 
@@ -27,9 +30,9 @@ shared_ptr<Beverage> Menu::createBeverage()
 		cout << endl;
 		cout << "Available Beverages" << endl;
 		cout << "1. Coffee" << endl;
-		//cout << "2. Espresso" << endl;
-		//cout << "3. Tea" << endl;
-		//cout << "4. Hot Chocolate" << endl;
+		cout << "2. Espresso" << endl;
+		cout << "3. Tea" << endl;
+		cout << "4. Hot Chocolate" << endl;
 		cout << "5. Quit" << endl << endl;
 
 		cout << "My beverage choice are: ";
@@ -46,15 +49,21 @@ shared_ptr<Beverage> Menu::createBeverage()
 
 		case 2:
 		{
+			beverage = shared_ptr<Beverage>(new Espresso());
+			keepOn = false;
 			break;
 		}
 
 		case 3:
 		{
+			beverage = shared_ptr<Beverage>(new Tea());
+			keepOn = false;
 			break;
 		}
 		case 4:
 		{
+			beverage = shared_ptr<Beverage>(new HotChocolate());
+			keepOn = false;
 			break;
 		}
 		default: keepOn = false;
@@ -117,7 +126,13 @@ shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 		}
 		else {
 			keepOn = false;
-			return beverage;
+			if (beverageDecorator != nullptr)
+			{
+				return beverageDecorator;
+			}
+			else {
+				return beverage;
+			}
 		}
 	}
 	return beverageDecorator;
