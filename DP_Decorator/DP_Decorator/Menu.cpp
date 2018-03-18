@@ -22,7 +22,7 @@ shared_ptr<Beverage> Menu::createBeverage()
 	shared_ptr<Beverage> beverage;
 	int beverageChoice;
 	bool keepOn = true;
-	
+
 	while (keepOn) {
 		cout << endl;
 		cout << "Available Beverages" << endl;
@@ -64,18 +64,18 @@ shared_ptr<Beverage> Menu::createBeverage()
 	return beverage;
 }
 
-shared_ptr<BeverageDecorator> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
+shared_ptr<Beverage> Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
 {
-	shared_ptr<BeverageDecorator> beverageDecorator;
+	shared_ptr<Beverage> beverageDecorator = nullptr;
 	int beverageAccessoriesChoice;
 	int addBeverageAccessories;
 	bool keepOn = true;
 
 	while (keepOn) {
-	cout << "Do you want add beverage accessories? Please press 1. Otherwise press 0!" << endl;
-	cin >> addBeverageAccessories;
+		cout << "Do you want add beverage accessories? Please press 1. Otherwise press 0!" << endl;
+		cin >> addBeverageAccessories;
 
-	if (addBeverageAccessories == 1) {
+		if (addBeverageAccessories == 1) {
 
 			cout << endl;
 			cout << "Available beverage accessories" << endl;
@@ -92,8 +92,12 @@ shared_ptr<BeverageDecorator> Menu::addBeverageAccessories(shared_ptr<Beverage> 
 			{
 			case 1:
 			{
-				beverageDecorator = shared_ptr<BeverageDecorator>(new Sugar(beverage));
-				//keepOn = true;
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new Sugar(beverageDecorator));
+				}
+				else {
+					beverageDecorator = shared_ptr<BeverageDecorator>(new Sugar(beverage));
+				}
 				break;
 			}
 			case 2:
@@ -111,9 +115,10 @@ shared_ptr<BeverageDecorator> Menu::addBeverageAccessories(shared_ptr<Beverage> 
 			default: keepOn = false;
 			}
 		}
-	else {
-		keepOn = false;
-	}
+		else {
+			keepOn = false;
+			return beverage;
+		}
 	}
 	return beverageDecorator;
 }
@@ -126,6 +131,6 @@ void Menu::displayBeverage(shared_ptr<Beverage> beverage)
 void Menu::run()
 {
 	shared_ptr<Beverage> beverage = createBeverage();
-	shared_ptr<BeverageDecorator> beverageDecorator = addBeverageAccessories(beverage);
+	shared_ptr<Beverage> beverageDecorator = addBeverageAccessories(beverage);
 	displayBeverage(beverageDecorator);
 }

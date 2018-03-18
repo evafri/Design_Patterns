@@ -16,7 +16,7 @@ public:
 	~Menu() {}
 
 	shared_ptr<Beverage> createBeverage();
-	shared_ptr<BeverageDecorator> addBeverageAccessories(shared_ptr<Beverage> beverage);
+	shared_ptr<Beverage> addBeverageAccessories(shared_ptr<Beverage> beverage);
 	void displayBeverage(shared_ptr<Beverage> beverage);
 	void run();
 };
