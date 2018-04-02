@@ -2,13 +2,17 @@
 File: GameFactory.cpp
 Purpose: Implementation of the two concrete GameFactory classes
 Author: Eva Frisell <evmo1600>
-Date: 2018-03-11
+Date: 2018-04-02
 Version: 1.1
 */
 
 #include "GameFactory.h"
 #include "Obstacle.h"
 #include "Action.h"
+
+// Initialize the static pointer instances
+NiceGameFactory * NiceGameFactory::niceGameFactory = nullptr;
+NastyGameFactory * NastyGameFactory::nastyGameFactory = nullptr;
 
 // Function that fills vector with obstacle-objects.
 vector<Obstacle*> NiceGameFactory::makeObstacles()

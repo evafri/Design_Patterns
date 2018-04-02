@@ -2,7 +2,7 @@
 File: testLab4.cpp
 Purpose: Implementation of testLab4. Here, the user can choose if he or she wants to play a nasty or a nice game.
 Author: Eva Frisell <evmo1600>
-Date: 2018-03-11
+Date: 2018-04-02
 Version: 1.1
 */
 
@@ -18,9 +18,8 @@ int main() {
     int choice;
     bool keepOn = true;
 
-
     while(keepOn) {
-        GameFactory *gf = nullptr;
+       GameFactory *gf = nullptr;
         cout << "Choose your game:" << endl;
         cout << "1 - Nice game" << endl;
         cout << "2 - Nasty game" << endl;
@@ -32,18 +31,28 @@ int main() {
         }
 		
         switch(choice) {
-          case 1:  gf = new NiceGameFactory(); break; // create a new NiceGameFactory object
-          case 2:  gf = new NastyGameFactory(); break; // create a new NastyGameFactory object
-          case 3: keepOn=false;
+		case 1:   
+			gf = NiceGameFactory::instance(); // create a new NiceGameFactory object
+			break; 
+			
+		case 2:  
+			gf = NastyGameFactory::instance(); // create a new NastyGameFactory object
+			break; 
+			
+		case 3: 
+			keepOn = false; 
+			delete gf; 
+			NiceGameFactory::instance()->destroySingleton();		// deallocate
+			NastyGameFactory::instance()->destroySingleton();		// deallocate
+			break;
         }
 		
         if(keepOn) {
           Game game(gf);
           game.play();
-          delete gf;
-        }
+		}
     } // while
-
+	
     return 0;
 }
 
