@@ -1,0 +1,198 @@
+/*
+File: Menu.cpp
+Purpose : Implementation of class menu
+Author : Eva Frisell <evmo1600>
+Date : 2018-04-01
+Version : 1.1
+*/
+
+#include <iostream>
+#include <string>
+#include <memory>
+#include "Menu.h"
+#include "Beverage.h"
+#include "DrinkPrototype.h"
+#include "PrototypeManager.h"
+
+using namespace std;
+
+// Function where user gets to choose beverage
+shared_ptr<Beverage>Menu::createBeverage()
+{
+	shared_ptr<Beverage>beverage = nullptr;
+
+	int beverageChoice;
+	bool keepOn = true;
+
+	while (keepOn) {
+		cout << endl;
+		cout << "Available Beverages" << endl;
+		cout << "1. Coffee" << endl;
+		cout << "2. Espresso" << endl;
+		cout << "3. Tea" << endl;
+		cout << "4. Hot Chocolate" << endl;
+		cout << "5. Quit" << endl << endl;
+
+		cout << "My beverage choice are: ";
+		cin >> beverageChoice;
+
+		switch (beverageChoice)
+		{
+		case 1:
+		{
+			beverage = PrototypeManager::instance()->getDrink("Coffee", 10);
+			keepOn = false;
+			break;
+		}
+		
+		case 2:
+		{
+			beverage = PrototypeManager::instance()->getDrink("Espresso", 14);
+			keepOn = false;
+			break;
+		}
+
+		case 3:
+		{
+			beverage = PrototypeManager::instance()->getDrink("Tea", 10);
+			keepOn = false;
+			break;
+		}
+		case 4:
+		{
+			beverage = PrototypeManager::instance()->getDrink("Hot Chocolate", 12);
+			keepOn = false;
+			break;
+		}
+		default: keepOn = false;
+			beverage = nullptr;				// Returns nullptr if user wants to quit
+			return beverage;
+			break;
+		}
+	}
+	return beverage;			// returns a pointer with selected beverage				
+}
+
+// Function that adds topping to beverage.
+shared_ptr<Beverage>Menu::addBeverageAccessories(shared_ptr<Beverage> beverage)
+{
+	shared_ptr<Beverage>beverageDecorator = nullptr;
+	
+	int beverageAccessoriesChoice;
+	int addBeverageAccessories;
+	bool keepOn = true;
+
+	while (keepOn) {
+		cout << "Do you want add beverage accessories? Please press 1. Otherwise press 0!" << endl;
+		cin >> addBeverageAccessories;
+
+		if (addBeverageAccessories == 1) {
+
+			cout << endl;
+			cout << "Available beverage accessories" << endl;
+			cout << "1. Sugar" << endl;
+			cout << "2. Milk" << endl;
+			cout << "3. Cream" << endl;
+			cout << "4. Whipped cream" << endl;
+			cout << "5. Quit" << endl << endl;
+
+			cout << "My beverage accessories choice are: ";
+			cin >> beverageAccessoriesChoice;
+
+			switch (beverageAccessoriesChoice)
+			{
+			case 1:
+			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverageDecorator, "Sugar", 1);
+				}
+				else {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverage, "Sugar", 1);
+				}
+				break;
+			}
+			case 2:
+			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverageDecorator, "Milk", 1);
+				}
+				else {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverage, "Milk", 1);
+				}
+				break;
+			}
+			case 3:
+			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverageDecorator, "Cream", 2);
+				}
+				else {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverage, "Cream", 2);
+				}
+				break;
+			}
+			case 4:
+			{
+				if (beverageDecorator != nullptr) {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverageDecorator, "Whipped Cream", 5);
+				}
+				else {
+					beverageDecorator = PrototypeManager::instance()->getDecorator(beverage, "Whipped Cream", 5);
+				}
+				break;
+			}
+			default:
+				keepOn = false;
+				if (beverageDecorator != nullptr)
+				{
+					return beverageDecorator;
+				}
+				else {
+					return beverage;					// If user doesn't want to add topping
+				}
+			}
+		}
+		else {
+			keepOn = false;
+			if (beverageDecorator != nullptr)
+			{
+				return beverageDecorator;
+			}
+			else {
+				return beverage;
+			}
+		}
+	}
+	return beverageDecorator;						// returns a pointer with selected toppings
+}
+
+// Function that display order and price.
+void Menu::displayBeverage(shared_ptr<Beverage> beverage)
+{
+	cout << "Your order is: " << beverage->getName() << " and your total is: " << beverage->getPrice() << " kronor" << endl;
+
+}
+
+// Function that starts the menus. 
+void Menu::run()
+{
+	bool newOrder = true;
+
+	while (newOrder) {
+		shared_ptr<Beverage> beverage;
+		beverage = createBeverage();
+
+		if (beverage != nullptr) {
+			shared_ptr<Beverage> beverageDecorator = addBeverageAccessories(beverage);
+			displayBeverage(beverageDecorator);
+		}
+		cout << endl;
+		cout << "Press 1 if you want to make another order and 0 if you are finished!" << endl;
+		cin >> newOrder;
+
+		if (newOrder == 0) {
+			newOrder = false;
+		}
+	}
+	PrototypeManager::instance()->destroySingleton();				// Destroy instance 
+}
