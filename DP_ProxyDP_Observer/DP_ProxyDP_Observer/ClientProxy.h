@@ -1,8 +1,8 @@
 /*
 File: ClientProxy.h
-Purpose: Definition of class ClientProxy
+Purpose: Definition of class ClientProxy. ClientProxy communicates with the server and receives new messages. 
 Author: Eva Frisell <evmo1600>
-Date: 2018-03-18
+Date: 2018-04-18
 Version: 1.1
 */
 
@@ -10,27 +10,25 @@ Version: 1.1
 #define CLIENTPROXY_H
 
 #include "ChatObserver.h"
+#include "ClientConnection.h"
 #include "Address.h"
-#include "Server.h"
 
 class Server;  // Forward declaration
 
 class ClientProxy : public ChatObserver {
 private:
-	string name;
-	HDaddress addr;
-	//Server *iServ;
+	HDclientConnection* iClientCon;
 
 public:
-	ClientProxy(string iname, HDaddress address) :ChatObserver("ClientProxy"), name(iname), addr(address)
-	{		
-		//iServ->attach(this);
+	ClientProxy(string iname, HDaddress address) :ChatObserver(iname) {
+		iClientCon = new HDclientConnection;
+		iClientCon->connect(address);					// Connects with ClientConnection and add HDaddress
 	}
 
-	virtual ~ClientProxy() {}
+	virtual ~ClientProxy() {
+		delete iClientCon;
+	}
 
 	virtual void update(const Message &mess);
-	//void addMessage(Message message); 
-	//void leave(); 
 };
 #endif

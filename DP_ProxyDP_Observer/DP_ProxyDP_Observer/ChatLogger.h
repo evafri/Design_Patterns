@@ -23,8 +23,5 @@ private:
     string iFileName;
     ofstream iLogFile;
     Server *iServ;
-
 };
-
-
 #endif

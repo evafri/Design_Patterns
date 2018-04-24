@@ -25,7 +25,6 @@ using namespace std;
 
 int main()
 {
-
 	char buff[200];
 
 #if defined(_WIN32) || defined(_WIN64)

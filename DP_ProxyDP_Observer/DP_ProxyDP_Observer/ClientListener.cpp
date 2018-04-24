@@ -80,7 +80,7 @@ void ClientListener::listen() {
         } // Detach
 
         else {  // Ordinary chat message -> dispatch to server
-            //iServer->addMessage(msg);
+            iServer->addMessage(msg);
         } // Chat message
      }
    }
